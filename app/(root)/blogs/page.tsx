@@ -1,8 +1,10 @@
 import BlogCard from '@/components/cards/blog';
 import PageHeader from '@/components/shared/page-haed';
-import { blogs } from '@/constants';
+import { getBlogs } from '@/service/blog.service';
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+  const blogs = await getBlogs();
+
   return (
     <div className="max-w-6xl mx-auto">
       <PageHeader />

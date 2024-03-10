@@ -7,13 +7,20 @@ export interface ChildProps {
 export interface IBlog {
   title: string;
   description: string;
-  author: string;
-  tags: string[];
-  date: string;
-  image: string;
+  image: { url: string };
+  author: IAuthor;
+  category: ICategoryAndTag;
+  tag: IAuthor;
+  createdAt: string;
+  content: { html: string };
 }
 
 export interface IAuthor {
   name: string;
-  image: string;
+  image: { url: string };
+}
+
+export interface ICategoryAndTag {
+  name: string;
+  slug: string;
 }
