@@ -1,0 +1,21 @@
+import BlogCard from '@/components/cards/blog';
+import PageHeader from '@/components/shared/page-haed';
+import { getBlogsByCategory } from '@/service/category.service';
+
+async function CategoryPage({ params }: { params: { slug: string } }) {
+  const category = await getBlogsByCategory(params.slug);
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      <PageHeader title={category.name} />
+
+      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24">
+        {category.blogs.map(blog => (
+          <BlogCard key={blog.title} {...blog} isVertical />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default CategoryPage;

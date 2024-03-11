@@ -10,13 +10,15 @@ export interface IBlog {
   image: { url: string };
   author: IAuthor;
   category: ICategoryAndTag;
-  tag: IAuthor;
+  tag: ICategoryAndTag;
   createdAt: string;
   content: { html: string };
+  slug: string;
 }
 
 export interface IAuthor {
   name: string;
+  bio: string;
   image: { url: string };
 }
 

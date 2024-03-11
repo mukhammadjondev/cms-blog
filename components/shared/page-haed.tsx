@@ -8,9 +8,10 @@ import { Fragment } from 'react';
 
 interface PageHeaderProps {
   desc?: string;
+  title?: string;
 }
 
-export default function PageHeader({ desc }: PageHeaderProps) {
+export default function PageHeader({ desc, title }: PageHeaderProps) {
   const paths = usePathname();
   const pathNames = paths.split('/').filter(path => path);
 
@@ -18,7 +19,9 @@ export default function PageHeader({ desc }: PageHeaderProps) {
     <div className="relative mt-[15vh] mb-12 flex items-center justify-center flex-col">
       {desc && <p className="text-lg text-muted-foreground">{desc}</p>}
       <h2 className="text-center text-4xl section-title font-creteRound">
-        <span className="capitalize">{pathNames[pathNames.length - 1]}</span>
+        <span className="capitalize">
+          {title ? title : pathNames[pathNames.length - 1]}
+        </span>
       </h2>
 
       <div className="flex gap-1 items-center mt-4">

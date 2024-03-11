@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getReadingTime(content: string) {
-  const WPS = 250 / 60;
+  const WPS = 150 / 60;
 
   let images = 0;
   const regex = /\w/;
