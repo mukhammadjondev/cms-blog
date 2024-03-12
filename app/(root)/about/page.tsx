@@ -1,9 +1,11 @@
 import AuthorCard from '@/components/cards/author';
 import PageHeader from '@/components/shared/page-haed';
-import { authors } from '@/constants';
+import { getAuthors } from '@/service/author.service';
 import Image from 'next/image';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const authors = await getAuthors();
+
   return (
     <div className="max-w-6xl mx-auto">
       <PageHeader />

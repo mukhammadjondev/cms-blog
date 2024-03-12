@@ -92,7 +92,7 @@ export default async function SlugPage({
 
       <div className="flex mt-6 gap-6 items-center max-md:flex-col">
         <Image
-          src={'/author/chris-impey.jpg'}
+          src={blog.author.image.url}
           alt="author"
           width="155"
           height="155"
@@ -104,7 +104,7 @@ export default async function SlugPage({
             {blog.author.bio}
           </p>
           <Link
-            href="/"
+            href={`/author/${blog.author.id}`}
             className="flex items-center gap-2 hover:text-blue-500 underline transition-colors"
           >
             <span>See all posts by this author</span>
