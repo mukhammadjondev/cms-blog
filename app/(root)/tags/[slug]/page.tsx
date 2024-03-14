@@ -2,6 +2,18 @@ import BlogCard from '@/components/cards/blog';
 import PageHeader from '@/components/shared/page-haed';
 import { getBlogsByTag } from '@/service/tag.service';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const blog = await getBlogsByTag(params.slug);
+
+  return {
+    title: blog.name,
+  };
+}
+
 async function TagPage({ params }: { params: { slug: string } }) {
   const tag = await getBlogsByTag(params.slug);
 

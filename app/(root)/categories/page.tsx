@@ -1,6 +1,11 @@
 import CategoriesTagsCard from '@/components/cards/categories-tags';
 import PageHeader from '@/components/shared/page-haed';
 import { getCategories } from '@/service/category.service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All categories',
+};
 
 async function CategoriesPage() {
   const categories = await getCategories();

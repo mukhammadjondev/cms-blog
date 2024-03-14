@@ -1,6 +1,11 @@
 import CategoriesTagsCard from '@/components/cards/categories-tags';
 import PageHeader from '@/components/shared/page-haed';
 import { getTags } from '@/service/tag.service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All tags',
+};
 
 async function TagsPage() {
   const tags = await getTags();

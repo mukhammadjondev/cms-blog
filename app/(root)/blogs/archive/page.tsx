@@ -1,11 +1,14 @@
-'use client';
-
 import PageHeader from '@/components/shared/page-haed';
 import { getArchiveBlogs } from '@/service/blog.service';
 import { format } from 'date-fns';
 import { Archive, Dot } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { Fragment } from 'react';
+
+export const metadata: Metadata = {
+  title: 'Archived blogs',
+};
 
 export default async function ArchivePage() {
   const blogs = await getArchiveBlogs();

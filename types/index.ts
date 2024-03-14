@@ -32,4 +32,5 @@ export interface IAuthor {
 export interface ICategoryAndTag {
   name: string;
   slug: string;
+  blogs: IBlog[];
 }

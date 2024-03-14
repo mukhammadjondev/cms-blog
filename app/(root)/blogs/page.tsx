@@ -1,6 +1,11 @@
 import BlogCard from '@/components/cards/blog';
 import PageHeader from '@/components/shared/page-haed';
 import { getBlogs } from '@/service/blog.service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'All blogs',
+};
 
 export default async function BlogsPage() {
   const blogs = await getBlogs();

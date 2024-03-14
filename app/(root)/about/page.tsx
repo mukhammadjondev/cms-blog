@@ -1,7 +1,12 @@
 import AuthorCard from '@/components/cards/author';
 import PageHeader from '@/components/shared/page-haed';
 import { getAuthors } from '@/service/author.service';
+import { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About us',
+};
 
 export default async function AboutPage() {
   const authors = await getAuthors();

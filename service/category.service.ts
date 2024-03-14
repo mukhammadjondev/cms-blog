@@ -1,5 +1,6 @@
 import { IBlog, ICategoryAndTag } from '@/types';
 import request, { gql } from 'graphql-request';
+import { cache } from 'react';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!;
 
@@ -9,6 +10,9 @@ export const getCategories = async () => {
       categories {
         name
         slug
+        blogs {
+          id
+        }
       }
     }
   `;
@@ -20,11 +24,11 @@ export const getCategories = async () => {
   return categories;
 };
 
-export const getBlogsByCategory = async (slug: string) => {
+export const getBlogsByCategory = cache(async (slug: string) => {
   const query = gql`
     query MyQuery($slug: String!) {
       category(where: { slug: $slug }) {
-        blogs {
+        blogs(where: { archive: false }) {
           author {
             name
             image {
@@ -60,4 +64,4 @@ export const getBlogsByCategory = async (slug: string) => {
     category: { blogs: IBlog[]; name: string };
   }>(graphqlAPI, query, { slug });
   return category;
-};
+});
