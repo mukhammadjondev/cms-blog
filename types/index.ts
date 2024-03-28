@@ -22,10 +22,10 @@ export interface IArchivedBlog {
 }
 
 export interface IAuthor {
+  _id: string;
   name: string;
   bio: string;
-  image: { url: string };
-  id: string;
+  avatar: string;
   blogs: IBlog[];
 }
 
